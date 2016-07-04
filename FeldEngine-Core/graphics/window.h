@@ -3,6 +3,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <array>
 
 namespace Fd { 
 	namespace Graphics {
@@ -20,11 +21,6 @@ namespace Fd {
 		void update() const;
 		bool closed() const;
 
-		bool m_keys[MAX_KEYS];
-		bool m_mouseButtons[MAX_BUTTONS];
-		double mx;
-		double my;
-
 		bool isKeyPressed(unsigned keyCode) const;
 		bool isMouseButtonPressed(unsigned button) const;
 		void getMousePosition(double& x, double& y) const; // Will return a Vector2
@@ -38,13 +34,18 @@ namespace Fd {
 		friend static void cursorPosition_callback(GLFWwindow *window, double xpos, double ypos);
 
 		// Private members
-		const char *m_title;
+		std::array<bool, MAX_KEYS> m_keys{};
+		std::array<bool, MAX_BUTTONS> m_mouseButtons{};
+		double mx{};
+		double my{};
 
-		int m_width;
-		int m_height;
-		bool m_closed;
+		const char *m_title{ "FeldEngine game" };
 
-		GLFWwindow *m_window;
+		int m_width{ 1024};
+		int m_height{ 768 };
+		bool m_closed{ false };
+
+		GLFWwindow *m_window{ nullptr };
 
 	};
 
