@@ -122,15 +122,13 @@
   <ItemGroup>
     <ClCompile Include="graphics\window.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Maths\vec3.cpp" />
-    <ClCompile Include="Maths\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphics\window.h" />
     <ClInclude Include="maths\Math.h" />
-    <ClInclude Include="maths\vec2.h" />
-    <ClInclude Include="Maths\vec3.h" />
-    <ClInclude Include="Maths\vec4.h" />
+    <ClInclude Include="maths\Vector2.h" />
+    <ClInclude Include="Maths\Vector3.h" />
+    <ClInclude Include="Maths\Vector4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

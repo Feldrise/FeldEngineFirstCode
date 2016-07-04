@@ -20,27 +20,21 @@
     <ClCompile Include="graphics\window.cpp">
       <Filter>src\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Maths\vec3.cpp">
-      <Filter>src\Maths</Filter>
-    </ClCompile>
-    <ClCompile Include="Maths\vec4.cpp">
-      <Filter>src\Maths</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphics\window.h">
       <Filter>src\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="maths\vec2.h">
-      <Filter>src\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths\vec3.h">
-      <Filter>src\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths\vec4.h">
-      <Filter>src\Maths</Filter>
-    </ClInclude>
     <ClInclude Include="maths\Math.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="maths\Vector2.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Vector3.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\Vector4.h">
       <Filter>src\Maths</Filter>
     </ClInclude>
   </ItemGroup>
