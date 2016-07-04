@@ -54,19 +54,6 @@ namespace Fd {
 				return *this;
 			}
 
-			friend Vector4 operator+(Vector4<T> left, const Vector4<T>& right) {
-				return left.add(right);
-			}
-			friend Vector4 operator-(Vector4<T> left, const Vector4<T>& right) {
-				return left.substract(right);
-			}
-			friend Vector4 operator*(Vector4<T> left, const Vector4<T>& right) {
-				return left.multiply(right);
-			}
-			friend Vector4 operator/(Vector4<T> left, const Vector4<T>& right) {
-				return left.divide(right);
-			}
-
 			bool operator==(const Vector4<T>& other) {
 				return x == other.x && y == other.y && z == other.z && w == other.w;
 			}
@@ -86,11 +73,32 @@ namespace Fd {
 			Vector4& operator/=(const Vector4<T>& other) {
 				return divide(other);
 			}
-
-			friend std::ostream& operator<< (std::ostream& stream, const Vector4<T>& vector) {
-				stream << "Vector4 : (" << vector.x << ", " << vector.y << ", " << vector.z << ", " << vector.w << ")";
-				return stream;
-			}
 		};
+
+		template <typename T>
+		Vector4<T> operator+(Vector4<T> left, const Vector4<T>& right) {
+			return left.add(right);
+		}
+
+		template <typename T>
+		Vector4<T> operator-(Vector4<T> left, const Vector4<T>& right) {
+			return left.substract(right);
+		}
+
+		template <typename T>
+		Vector4<T> operator*(Vector4<T> left, const Vector4<T>& right) {
+			return left.multiply(right);
+		}
+
+		template <typename T>
+		Vector4<T> operator/(Vector4<T> left, const Vector4<T>& right) {
+			return left.divide(right);
+		}
+
+		template <typename T>
+		std::ostream& operator<< (std::ostream& stream, const Vector4<T>& vector) {
+			stream << "Vector4 : (" << vector.x << ", " << vector.y << ", " << vector.z << ", " << vector.w << ")";
+			return stream;
+		}
 	}
 }
