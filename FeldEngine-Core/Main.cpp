@@ -11,10 +11,10 @@ int main()
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
-	Fd::Maths::vec2 a{ 1.0f, 2.0f };
-	Fd::Maths::vec2 b{ 2.0f, 4.0f };
+	Fd::Maths::vec2<float> a{ 1.0f, 2.0f };
+	Fd::Maths::vec2<float> b{ 2.0f, 4.0f };
 
-	Fd::Maths::vec2 c{ a + b };
+	Fd::Maths::vec2<float> c{ a + b };
 
 	while (!window.closed()) {
 		//std::cout << window.getWidth() << ", " << window.getHeight() << std::endl;

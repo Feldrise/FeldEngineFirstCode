@@ -4,33 +4,82 @@
 
 namespace Fd {
 	namespace Maths {
+
+		template <typename T>
 		struct vec2
 		{
-			float x{};
-			float y{};
+			T x{};
+			T y{};
 
-			vec2();
-			vec2(const float& x, const float& y);
+			vec2() = default;
+			vec2(const T& x, const T& y) {
+				this->x = x;
+				this->y = y;
+			}
 
-			vec2& add(const vec2& other);
-			vec2& substract(const vec2& other);
-			vec2& multiply(const vec2& other);
-			vec2& divide(const vec2& other);
 
-			friend vec2& operator+(vec2 left, const vec2& right);
-			friend vec2& operator-(vec2 left, const vec2& right);
-			friend vec2& operator*(vec2 left, const vec2& right);
-			friend vec2& operator/(vec2 left, const vec2& right);
+			vec2& add(const vec2& other) {
+				x += other.x;
+				y += other.y;
 
-			bool operator==(const vec2& other);
-			bool operator!=(const vec2& other);
+				return *this;
+			}
+			vec2& substract(const vec2& other) {
+				x -= other.x;
+				y -= other.y;
 
-			vec2& operator+=(const vec2& other);
-			vec2& operator-=(const vec2& other);
-			vec2& operator*=(const vec2& other);
-			vec2& operator/=(const vec2& other);
+				return *this;
+			}
+			vec2& multiply(const vec2& other) {
+				x *= other.x;
+				y *= other.y;
 
-			friend std::ostream& operator<< (std::ostream& stream, const vec2& vector);
+				return *this;
+			}
+			vec2& divide(const vec2& other) {
+				x /= other.x;
+				y /= other.y;
+
+				return *this;
+			}
+
+			friend vec2 operator+(vec2 left, const vec2& right) {
+				return left.add(right);
+			}
+			friend vec2 operator-(vec2 left, const vec2& right) {
+				return left.substract(right);
+			}
+			friend vec2 operator*(vec2 left, const vec2& right) {
+				return left.multiply(right);
+			}
+			friend vec2 operator/(vec2 left, const vec2& right) {
+				return left.divide(right);
+			}
+
+			bool operator==(const vec2& other) {
+				return x == other.x && y == other.y;
+			}
+			bool operator!=(const vec2& other) {
+				return !(*this == other);
+			}
+
+			vec2& operator+=(const vec2& other) {
+				return add(other);
+			}
+			vec2& operator-=(const vec2& other) {
+				return substract(other);
+			}
+			vec2& operator*=(const vec2& other) {
+				return multiply(other);
+			}
+			vec2& operator/=(const vec2& other) {
+				return divide(other);
+			}
+
+			friend std::ostream& operator<< (std::ostream& stream, const vec2& vector) {
+				stream << "vec2 : (" << vector.x << ", " << vector.y << ")";
+				return stream;
+			}
 		};
 	}
 }

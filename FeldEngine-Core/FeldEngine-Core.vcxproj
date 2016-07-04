@@ -122,7 +122,6 @@
   <ItemGroup>
     <ClCompile Include="graphics\window.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="maths\vec2.cpp" />
     <ClCompile Include="Maths\vec3.cpp" />
     <ClCompile Include="Maths\vec4.cpp" />
   </ItemGroup>

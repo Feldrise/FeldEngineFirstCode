@@ -20,9 +20,6 @@
     <ClCompile Include="graphics\window.cpp">
       <Filter>src\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="maths\vec2.cpp">
-      <Filter>src\Maths</Filter>
-    </ClCompile>
     <ClCompile Include="Maths\vec3.cpp">
       <Filter>src\Maths</Filter>
     </ClCompile>

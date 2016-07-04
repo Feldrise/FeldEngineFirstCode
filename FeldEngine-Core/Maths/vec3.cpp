@@ -2,9 +2,6 @@
 
 namespace Fd {
 	namespace Maths {
-		vec3::vec3() : x(0.0f), y(0.0f), z(0.0f)
-		{
-		}
 		vec3::vec3(const float & x, const float & y, const float & z)
 		{
 			this->x = x;
@@ -76,22 +73,22 @@ namespace Fd {
 		{
 			return divide(other);
 		}
-		vec3 & operator+(vec3 left, const vec3 & right)
+		vec3 operator+(vec3 left, const vec3 & right)
 		{
 			return left.add(right);
 		}
 
-		vec3 & operator-(vec3 left, const vec3 & right)
+		vec3 operator-(vec3 left, const vec3 & right)
 		{
 			return left.substract(right);
 		}
 
-		vec3 & operator*(vec3 left, const vec3 & right)
+		vec3 operator*(vec3 left, const vec3 & right)
 		{
 			return left.multiply(right);
 		}
 
-		vec3 & operator/(vec3 left, const vec3 & right)
+		vec3 operator/(vec3 left, const vec3 & right)
 		{
 			return left.divide(right);
 		}
