@@ -5,12 +5,8 @@ namespace Fd {
 
 		void window_resize(GLFWwindow *window, int width, int height);
 
-		Window::Window(const char * title, int width, int height)
+		Window::Window(const char * title, int width, int height) : m_title(title), m_width(width), m_height(height)
 		{
-			m_title = title;
-			m_width = width;
-			m_height = height;
-
 			if (!glfwInit()) {
 				glfwTerminate();
 				std::cout << "Failed to init GLFW" << std::endl;

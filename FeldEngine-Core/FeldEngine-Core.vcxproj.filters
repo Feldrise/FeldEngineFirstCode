@@ -8,22 +8,43 @@
     <Filter Include="src">
       <UniqueIdentifier>{75d596e5-9305-4f2c-b1cf-f44a6192a6cb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\graphics">
-      <UniqueIdentifier>{677b0c4a-04fd-4855-9d18-22d1b547fc92}</UniqueIdentifier>
+    <Filter Include="src\Maths">
+      <UniqueIdentifier>{a2bbe857-ffa6-4574-a1bd-7b8d8e94704e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\input">
-      <UniqueIdentifier>{b0711513-6487-4b43-909f-0bc1361ce80a}</UniqueIdentifier>
+    <Filter Include="src\Graphics">
+      <UniqueIdentifier>{677b0c4a-04fd-4855-9d18-22d1b547fc92}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="graphics\window.cpp">
-      <Filter>src\graphics</Filter>
+      <Filter>src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="maths\vec2.cpp">
+      <Filter>src\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\vec3.cpp">
+      <Filter>src\Maths</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths\vec4.cpp">
+      <Filter>src\Maths</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphics\window.h">
-      <Filter>src\graphics</Filter>
+      <Filter>src\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="maths\vec2.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\vec3.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\vec4.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="maths\Math.h">
+      <Filter>src\Maths</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
