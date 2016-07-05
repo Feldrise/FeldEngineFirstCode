@@ -9,8 +9,11 @@ namespace Fd {
 		template <typename T>
 		struct Matrix4
 		{
-			std::array<T, 4 * 4> elements{ 1 };
-
+			union
+			{
+				std::array<T, 4 * 4> elements{ 1 };
+				std::array<Vector4<T>, 4> columns;
+			};
 			Matrix4() = default;
 			Matrix4(T diagonal) {
 				elements[0 + 0 * 4] = diagonal;
@@ -120,7 +123,7 @@ namespace Fd {
 		};
 
 		template <typename T>
-		Matrix4 operator*(Matrix4<T> left, const Matrix4<T>& right) {
+		Matrix4<T> operator*(Matrix4<T> left, const Matrix4<T>& right) {
 			return left.multiply(right);
 		}
 	}
