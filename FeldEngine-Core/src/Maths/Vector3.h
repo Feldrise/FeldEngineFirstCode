@@ -95,5 +95,10 @@ namespace Fd {
 			stream << "Vector3 : (" << vector.x << ", " << vector.y << ", " << vector.z << ")";
 			return stream;
 		}
+
+		using vec3 = Vector3<float>;
+		using vec3i = Vector3<int>;
+		using vec3u = Vector3<unsigned>;
+		using vec3l = Vector3<long>;
 	}
 }

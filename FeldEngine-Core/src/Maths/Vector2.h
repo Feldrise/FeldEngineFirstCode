@@ -91,5 +91,9 @@ namespace Fd {
 			return stream;
 		}
 
+		using vec2 = Vector2<float>;
+		using vec2i = Vector2<int>;
+		using vec2u = Vector2<unsigned>;
+		using vec2l = Vector2<long>;
 	}
 }

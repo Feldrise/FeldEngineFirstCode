@@ -75,7 +75,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)/deps/lib/Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -97,7 +97,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -120,17 +120,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="graphics\window.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\Graphics\Shader.cpp" />
+    <ClCompile Include="src\Graphics\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="graphics\window.h" />
-    <ClInclude Include="maths\Math.h" />
-    <ClInclude Include="Maths\maths_function.h" />
-    <ClInclude Include="Maths\Matrix4.h" />
-    <ClInclude Include="maths\Vector2.h" />
-    <ClInclude Include="Maths\Vector3.h" />
-    <ClInclude Include="Maths\Vector4.h" />
+    <ClInclude Include="src\Graphics\Shader.h" />
+    <ClInclude Include="src\Graphics\Window.h" />
+    <ClInclude Include="src\Maths\Math.h" />
+    <ClInclude Include="src\Maths\Maths_function.h" />
+    <ClInclude Include="src\Maths\Matrix4.h" />
+    <ClInclude Include="src\Maths\Vector2.h" />
+    <ClInclude Include="src\Maths\Vector3.h" />
+    <ClInclude Include="src\Maths\Vector4.h" />
+    <ClInclude Include="src\Utils\UtilsFile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Victor\Desktop\tempsFd\src\shaders\basic.frag" />
+    <None Include="C:\Users\Victor\Desktop\tempsFd\src\shaders\basic.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

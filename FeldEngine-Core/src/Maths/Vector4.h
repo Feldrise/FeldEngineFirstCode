@@ -100,5 +100,10 @@ namespace Fd {
 			stream << "Vector4 : (" << vector.x << ", " << vector.y << ", " << vector.z << ", " << vector.w << ")";
 			return stream;
 		}
+
+		using vec4 = Vector4<float>;
+		using vec4i = Vector4<int>;
+		using vec4u = Vector4<unsigned>;
+		using vec4l = Vector4<long>;
 	}
 }

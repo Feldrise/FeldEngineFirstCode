@@ -8,7 +8,7 @@ namespace Fd {
 
 		float toRadians(float degrees)
 		{
-			return degrees * (M_PI / 180.0f);
+			return static_cast<float>(degrees * (M_PI / 180.0f));
 		}
 	}
 }

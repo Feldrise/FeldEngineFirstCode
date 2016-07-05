@@ -36,6 +36,7 @@ namespace Fd {
 			std::cout << "**********Feld[2D]Engine**********" << std::endl;
 			std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
 			std::cout << "**********************************" << std::endl;
+			std::cout << std::endl;
 
 			for (int i{ 0 }; i < MAX_KEYS; i++) {
 				m_keys[i] = false;

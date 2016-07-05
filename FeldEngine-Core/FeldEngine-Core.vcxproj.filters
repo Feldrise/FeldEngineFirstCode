@@ -14,34 +14,57 @@
     <Filter Include="src\Graphics">
       <UniqueIdentifier>{677b0c4a-04fd-4855-9d18-22d1b547fc92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Utils">
+      <UniqueIdentifier>{8e0173e4-7c27-4717-88cf-27074c8f9121}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Shaders">
+      <UniqueIdentifier>{0a006c43-3fc4-46b9-8bb2-7cbb3d8349a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="graphics\window.cpp">
+    <ClCompile Include="src\Graphics\Window.cpp">
+      <Filter>src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Shader.cpp">
       <Filter>src\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="graphics\window.h">
+    <ClInclude Include="src\Maths\Math.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Maths_function.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Matrix4.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Vector2.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Vector3.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maths\Vector4.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Window.h">
       <Filter>src\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="maths\Math.h">
-      <Filter>src\Maths</Filter>
+    <ClInclude Include="src\Utils\UtilsFile.h">
+      <Filter>src\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="maths\Vector2.h">
-      <Filter>src\Maths</Filter>
+    <ClInclude Include="src\Graphics\Shader.h">
+      <Filter>src\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Maths\Vector3.h">
-      <Filter>src\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths\Vector4.h">
-      <Filter>src\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths\Matrix4.h">
-      <Filter>src\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="Maths\maths_function.h">
-      <Filter>src\Maths</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Victor\Desktop\tempsFd\src\shaders\basic.frag">
+      <Filter>src\Shaders</Filter>
+    </None>
+    <None Include="C:\Users\Victor\Desktop\tempsFd\src\shaders\basic.vert">
+      <Filter>src\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
