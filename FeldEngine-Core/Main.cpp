@@ -11,18 +11,12 @@ int main()
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
-	Fd::Maths::Vector2<float> a{ 1.0f, 2.0f };
-	Fd::Maths::Vector2<float> b{ 2.0f, 4.0f };
-
-	Fd::Maths::Vector2<float> c{ a + b };
+	Fd::Maths::Matrix4 position{ Fd::Maths::Matrix4::translation(Fd::Maths::Vector3<float>(2, 3, 4)) };
+	position *= Fd::Maths::Matrix4::identity();
 
 	while (!window.closed()) {
 		//std::cout << window.getWidth() << ", " << window.getHeight() << std::endl;
 		window.clear();
-
-		std::cout << c << std::endl;
-		std::cout << a << " + " << b << std::endl;
-		std::cout << (a != b) << std::endl;
 
 		double x, y;
 		window.getMousePosition(x, y);

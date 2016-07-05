@@ -13,7 +13,7 @@ namespace Fd {
 				return;
 			}
 
-			m_window = glfwCreateWindow(m_width, m_height, m_title, NULL, NULL);
+			m_window = glfwCreateWindow(m_width, m_height, m_title, nullptr, nullptr);
 			if (!m_window) {
 				glfwTerminate();
 				std::cout << "Failed to create the Window" << std::endl;

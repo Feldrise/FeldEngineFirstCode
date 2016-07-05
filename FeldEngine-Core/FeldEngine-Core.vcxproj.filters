@@ -37,5 +37,11 @@
     <ClInclude Include="Maths\Vector4.h">
       <Filter>src\Maths</Filter>
     </ClInclude>
+    <ClInclude Include="Maths\Matrix4.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths\maths_function.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

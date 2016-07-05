@@ -126,6 +126,8 @@
   <ItemGroup>
     <ClInclude Include="graphics\window.h" />
     <ClInclude Include="maths\Math.h" />
+    <ClInclude Include="Maths\maths_function.h" />
+    <ClInclude Include="Maths\Matrix4.h" />
     <ClInclude Include="maths\Vector2.h" />
     <ClInclude Include="Maths\Vector3.h" />
     <ClInclude Include="Maths\Vector4.h" />
