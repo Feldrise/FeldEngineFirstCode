@@ -31,11 +31,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Maths\Math.h">
-      <Filter>src\Maths</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Maths\Maths_function.h">
-      <Filter>src\Maths</Filter>
+    <ClInclude Include="src\Utils\UtilsFile.h">
+      <Filter>src\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\Maths\Matrix4.h">
       <Filter>src\Maths</Filter>
@@ -49,21 +46,24 @@
     <ClInclude Include="src\Maths\Vector4.h">
       <Filter>src\Maths</Filter>
     </ClInclude>
+    <ClInclude Include="src\Maths\Math.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
     <ClInclude Include="src\Graphics\Window.h">
       <Filter>src\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Utils\UtilsFile.h">
-      <Filter>src\Utils</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Shader.h">
       <Filter>src\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Maths\Maths_function.h">
+      <Filter>src\Maths</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Victor\Desktop\tempsFd\src\shaders\basic.frag">
+    <None Include="src\Shaders\basic.frag">
       <Filter>src\Shaders</Filter>
     </None>
-    <None Include="C:\Users\Victor\Desktop\tempsFd\src\shaders\basic.vert">
+    <None Include="src\Shaders\basic.vert">
       <Filter>src\Shaders</Filter>
     </None>
   </ItemGroup>

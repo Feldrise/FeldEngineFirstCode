@@ -136,8 +136,8 @@
     <ClInclude Include="src\Utils\UtilsFile.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Victor\Desktop\tempsFd\src\shaders\basic.frag" />
-    <None Include="C:\Users\Victor\Desktop\tempsFd\src\shaders\basic.vert" />
+    <None Include="src\Shaders\basic.frag" />
+    <None Include="src\Shaders\basic.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

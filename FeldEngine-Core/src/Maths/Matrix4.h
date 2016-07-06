@@ -17,6 +17,9 @@ namespace Fd {
 			};
 			Matrix4() = default;
 			Matrix4(T diagonal) {
+				for (int i = 0; i < 4 * 4; i++)
+					elements[i] = 0.0f;
+
 				elements[0 + 0 * 4] = diagonal;
 				elements[1 + 1 * 4] = diagonal;
 				elements[2 + 2 * 4] = diagonal;

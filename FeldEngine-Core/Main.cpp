@@ -8,7 +8,6 @@ int main()
 {
 
 	Fd::Graphics::Window window("FeldEngine", 960, 540);
-	glClearColor(0.2f, 0.3f, 0.8f, 1.0f);
 
 	GLfloat vertices[] =
 	{
@@ -29,7 +28,7 @@ int main()
 
 	Fd::Maths::mat4 ortho = Fd::Maths::mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
 
-	Fd::Graphics::Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+	Fd::Graphics::Shader shader("src/Shaders/basic.vert", "src/Shaders/basic.frag");
 	shader.enable();
 	shader.setUniformMat4("pr_matrix", ortho);
 	shader.setUniformMat4("ml_matrix", Fd::Maths::mat4::translation(Fd::Maths::vec3(4, 3, 0)));
@@ -42,7 +41,7 @@ int main()
 		window.clear();
 		double x, y;
 		window.getMousePosition(x, y);
-		shader.setUniform2f("light_pos", Fd::Maths::vec2((float)(x * 16.0f / 960.0f), (float)(9.0f - y * 9.0f / 540.0f)));
+		shader.setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 16.0f / 960.0f)), static_cast<float>((9.0f - y * 9.0f / 540.0f))));
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 		window.update();
 	}

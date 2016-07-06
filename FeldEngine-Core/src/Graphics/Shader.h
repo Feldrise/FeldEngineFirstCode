@@ -4,12 +4,8 @@
  #include <vector>  
  #include <GL/glew.h>  
    
-#include "../utils/UtilsFile.h"  
-#include "../Maths/Vector2.h"
-#include "../Maths/Vector3.h"
-#include "../Maths/Vector4.h"
-
-#include "../Maths/Matrix4.h"
+#include "../Maths/Math.h"
+#include "../Utils/UtilsFile.h"
    
  namespace Fd { 
 	 namespace Graphics {  
