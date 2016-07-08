@@ -29,9 +29,9 @@ namespace Fd {
 		inline int getHeight() const { return m_height; }
 	private:
 		// Private Function
-		friend static void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
-		friend static void mouseButton_callback(GLFWwindow *window, int button, int action, int mods);
-		friend static void cursorPosition_callback(GLFWwindow *window, double xpos, double ypos);
+		friend void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
+		friend void mouseButton_callback(GLFWwindow *window, int button, int action, int mods);
+		friend void cursorPosition_callback(GLFWwindow *window, double xpos, double ypos);
 
 		// Private members
 		std::array<bool, MAX_KEYS> m_keys{};

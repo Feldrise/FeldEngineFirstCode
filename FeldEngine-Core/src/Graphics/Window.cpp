@@ -60,6 +60,11 @@ namespace Fd {
 
 		void Window::update() const
 		{
+			GLenum error = glGetError();
+
+			if (error != GL_NO_ERROR)
+				std::cout << "OpenGL error: " << error << std::endl;
+
 			glfwSwapBuffers(m_window);
 			glfwPollEvents();
 		}

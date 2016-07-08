@@ -1,51 +1,88 @@
-#include <array>
+#include <vector>
+#include <time.h>
 
-#include "src/Graphics/window.h"
+#include "src/Graphics/Window.h"
+
 #include "src/Graphics/Shader.h"
+#include "src/Graphics/Renderable2D.h"
+#include "src/Graphics/sprite.h"
+#include "src/Graphics/StaticSprite.h"
+#include "src/Graphics/BatchRenderer2D.h"
+#include "src/Graphics/SimpleRenderer2D.h"
 
+#include "src/Maths/Math.h"
 
-int main()
+int main() 
 {
+	srand(static_cast<int>(time(nullptr)));
+	const bool renderBatch{ false };
+	const bool miniRect{ true };
 
-	Fd::Graphics::Window window("FeldEngine", 960, 540);
+	Fd::Graphics::Window window("FeldEngine demo", 960, 540);
 
-	GLfloat vertices[] =
-	{
-		0, 0, 0,
-		8, 0, 0,
-		0, 3, 0,
-		0, 3, 0,
-		8, 3, 0,
-		8, 0, 0
-	};
-
-	GLuint vbo;
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(0);
-
-	Fd::Maths::mat4 ortho = Fd::Maths::mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f);
+	Fd::Maths::mat4 ortho{ Fd::Maths::mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f) };
 
 	Fd::Graphics::Shader shader("src/Shaders/basic.vert", "src/Shaders/basic.frag");
 	shader.enable();
 	shader.setUniformMat4("pr_matrix", ortho);
-	shader.setUniformMat4("ml_matrix", Fd::Maths::mat4::translation(Fd::Maths::vec3(4, 3, 0)));
+
+	std::vector<Fd::Graphics::Renderable2D*> sprites{};
+
+	if (miniRect) {
+		for (float y{ 0 }; y < 9.0f; y += 0.05f) {
+			for (float x{ 0 }; x < 16.0f; x += 0.05f) {
+				if (renderBatch) {
+					sprites.push_back(new Fd::Graphics::Sprite(x, y, 0.04f, 0.04f, Fd::Maths::vec4(0.0f, rand() % 1000 / 1000.0f, 1.0f, 1.0f)));
+				}
+				else {
+					sprites.push_back(new Fd::Graphics::StaticSprite(x, y, 0.04f, 0.04f, Fd::Maths::vec4(0.0f, rand() % 1000 / 1000.0f, 1.0f, 1.0f), shader));
+				}
+			}
+		}
+	}
+	else {
+		for (float y{ 0 }; y < 9.0f; y++) {
+			for (float x{ 0 }; x < 16.0f; x++) {
+				if (renderBatch) {
+					sprites.push_back(new Fd::Graphics::Sprite(x, y, 0.9f, 0.9f, Fd::Maths::vec4(0.0f, rand() % 1000 / 1000.0f, 1.0f, 1.0f)));
+				}
+				else {
+					sprites.push_back(new Fd::Graphics::StaticSprite(x, y, 0.9f, 0.9f, Fd::Maths::vec4(0.0f, rand() % 1000 / 1000.0f, 1.0f, 1.0f), shader));
+				}
+			}
+		}
+	}
+
+	Fd::Graphics::BatchRenderer2D bRenderer;
+	Fd::Graphics::SimpleRenderer2D sRenderer;
 
 	shader.setUniform2f("light_pos", Fd::Maths::vec2(4.0f, 1.5f));
-	shader.setUniform4f("colour", Fd::Maths::vec4(0.2f, 0.3f, 0.8f, 1.0f));
+	shader.setUniform4f("colour", Fd::Maths::vec4(0.4f, 0.7f, 0.6f, 1.0f));
 
-	while (!window.closed())
-	{
+	while (!window.closed()) {
 		window.clear();
+
 		double x, y;
 		window.getMousePosition(x, y);
 		shader.setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 16.0f / 960.0f)), static_cast<float>((9.0f - y * 9.0f / 540.0f))));
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+
+		if (renderBatch) {
+			bRenderer.begin();
+			for (size_t i{ 0 }; i < sprites.size(); i++) {
+				bRenderer.submit(sprites[i]);
+			}
+			bRenderer.end();
+			bRenderer.flush();
+		}
+		else {
+			for (size_t i{ 0 }; i < sprites.size(); i++) {
+				sRenderer.submit(sprites[i]);
+			}
+			sRenderer.flush();
+		}
+
 		window.update();
 	}
-
 
 	return 0;
 }

@@ -75,7 +75,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)/deps/lib/Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -97,7 +97,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -121,11 +121,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\Graphics\BatchRenderer2D.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\Buffer.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\IndexBuffer.cpp" />
+    <ClCompile Include="src\Graphics\Buffers\VertexArray.cpp" />
+    <ClCompile Include="src\Graphics\Sprite.cpp" />
+    <ClCompile Include="src\Graphics\StaticSprite.cpp" />
+    <ClCompile Include="src\Graphics\SimpleRenderer2D.cpp" />
     <ClCompile Include="src\Graphics\Shader.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Graphics\BatchRenderer2D.h" />
+    <ClInclude Include="src\Graphics\Buffers\Buffer.h" />
+    <ClInclude Include="src\Graphics\Buffers\IndexBuffer.h" />
+    <ClInclude Include="src\Graphics\Buffers\VertexArray.h" />
+    <ClInclude Include="src\Graphics\Renderable2D.h" />
+    <ClInclude Include="src\Graphics\Renderer2D.h" />
     <ClInclude Include="src\Graphics\Shader.h" />
+    <ClInclude Include="src\Graphics\SimpleRenderer2D.h" />
+    <ClInclude Include="src\Graphics\Sprite.h" />
+    <ClInclude Include="src\Graphics\StaticSprite.h" />
     <ClInclude Include="src\Graphics\Window.h" />
     <ClInclude Include="src\Maths\Math.h" />
     <ClInclude Include="src\Maths\Maths_function.h" />
