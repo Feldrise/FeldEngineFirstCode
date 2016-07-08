@@ -39,8 +39,8 @@
 int main() 
 {
 	srand(static_cast<int>(time(nullptr)));
-	const bool renderBatch{ false };
-	const bool miniRect{ true };
+	const bool renderBatch{ true };
+	const bool miniRect{ false };
 
 	Fd::Graphics::Window window("FeldEngine demo", 960, 540);
 
