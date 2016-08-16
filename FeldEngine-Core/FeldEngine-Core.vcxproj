@@ -98,6 +98,10 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -149,6 +153,7 @@
     <ClInclude Include="src\Maths\Vector2.h" />
     <ClInclude Include="src\Maths\Vector3.h" />
     <ClInclude Include="src\Maths\Vector4.h" />
+    <ClInclude Include="src\Utils\Timer.h" />
     <ClInclude Include="src\Utils\UtilsFile.h" />
   </ItemGroup>
   <ItemGroup>

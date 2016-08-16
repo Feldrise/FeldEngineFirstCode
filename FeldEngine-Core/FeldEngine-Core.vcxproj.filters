@@ -109,6 +109,9 @@
     <ClInclude Include="src\Graphics\Sprite.h">
       <Filter>src\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="src\Utils\Timer.h">
+      <Filter>src\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shaders\basic.frag">

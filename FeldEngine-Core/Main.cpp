@@ -36,11 +36,13 @@
 
 #include "src/Maths/Math.h"
 
+#include "src/Utils/Timer.h"
+
 int main() 
 {
 	srand(static_cast<int>(time(nullptr)));
 	const bool renderBatch{ true };
-	const bool miniRect{ false };
+	const bool miniRect{ true };
 
 	Fd::Graphics::Window window("FeldEngine demo", 960, 540);
 
@@ -83,8 +85,17 @@ int main()
 	shader.setUniform2f("light_pos", Fd::Maths::vec2(4.0f, 1.5f));
 	shader.setUniform4f("colour", Fd::Maths::vec4(0.4f, 0.7f, 0.6f, 1.0f));
 
+	Fd::Timer time;
+	float timer{};
+	unsigned frames{ 0 };
+
 	while (!window.closed()) {
 		window.clear();
+
+		Fd::Maths::mat4 mat{ Fd::Maths::mat4::translation(Fd::Maths::vec3(5, 5, 5)) };
+		mat = mat * Fd::Maths::mat4::rotation(time.elapsed() * 50.0f, Fd::Maths::vec3(0, 0, 1));
+		mat = mat * Fd::Maths::mat4::translation(Fd::Maths::vec3(-5, -5, -5));
+		shader.setUniformMat4("ml_matrix", mat);
 
 		double x, y;
 		window.getMousePosition(x, y);
@@ -106,6 +117,12 @@ int main()
 		}
 
 		window.update();
+		++frames;
+		if (time.elapsed() - timer > 1.0f) {
+			timer += 1.0f;
+			std::cout << frames << " FPS" << std::endl;
+			frames = 0;
+		}
 	}
 
 	return 0;

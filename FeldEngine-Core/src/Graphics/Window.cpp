@@ -50,6 +50,7 @@ namespace Fd {
 			glfwSetKeyCallback(m_window, key_callback);
 			glfwSetMouseButtonCallback(m_window, mouseButton_callback);
 			glfwSetCursorPosCallback(m_window, cursorPosition_callback);
+			glfwSwapInterval(0.0);
 
 			if (glewInit() != GLEW_OK) {
 				glfwTerminate();

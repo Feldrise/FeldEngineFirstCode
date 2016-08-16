@@ -39,7 +39,7 @@ namespace Fd {
 			glEnableVertexAttribArray(SHADER_VERTEX_INDEX);
 			glEnableVertexAttribArray(SHADER_COLOR_INDEX);
 			glVertexAttribPointer(SHADER_VERTEX_INDEX, 3, GL_FLOAT, GL_FALSE, static_cast<GLsizei>(RENDERER_VERTEX_SIZE), (const GLvoid*)0);
-			glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_FLOAT, GL_FALSE, static_cast<GLsizei>(RENDERER_VERTEX_SIZE), (const GLvoid*)(3 * sizeof(GLfloat)));
+			glVertexAttribPointer(SHADER_COLOR_INDEX, 4, GL_UNSIGNED_BYTE, GL_TRUE, static_cast<GLsizei>(RENDERER_VERTEX_SIZE), (const GLvoid*)(offsetof(VertexData, VertexData::color)));
 			glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 			GLuint *indices = new GLuint[RENDERER_INDICES_SIZE];
@@ -80,20 +80,28 @@ namespace Fd {
 			const Maths::vec2& size = renderable->getSize();
 			const Maths::vec4& color = renderable->getColor();
 
+			int r{ static_cast<int>(color.x * 255.0f) };
+			int g{ static_cast<int>(color.y * 255.0f) };
+			int b{ static_cast<int>(color.z * 255.0f) };
+			int a{ static_cast<int>(color.w * 255.0f) };
+
+			unsigned c{};
+			c = a << 24 | b << 16 | g << 8 | r;
+
 			m_buffer->vertex = position;
-			m_buffer->color = color;
+			m_buffer->color = c;
 			m_buffer++;
 
 			m_buffer->vertex = Maths::vec3(position.x, position.y + size.y, position.z);
-			m_buffer->color = color;
+			m_buffer->color = c;
 			m_buffer++;
 
 			m_buffer->vertex = Maths::vec3(position.x + size.x, position.y + size.y, position.z);
-			m_buffer->color = color;
+			m_buffer->color = c;
 			m_buffer++;
 
 			m_buffer->vertex = Maths::vec3(position.x + size.x, position.y, position.z);
-			m_buffer->color = color;
+			m_buffer->color = c;
 			m_buffer++;
 
 			m_indexCount += 6;
