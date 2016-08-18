@@ -41,15 +41,15 @@ namespace Fd {
 		const unsigned SHADER_VERTEX_INDEX = 0;
 		const unsigned SHADER_COLOR_INDEX = 1;
 
-		class BatchRenderer2D : Renderer2D
+		class BatchRenderer2D : public Renderer2D
 		{
 		public:
 			BatchRenderer2D();
 			~BatchRenderer2D();
 
-			void begin();
+			void begin() override;
 			virtual void submit(const Renderable2D* renderable) override;
-			void end();
+			void end() override;
 			virtual void flush() override;
 
 		private:

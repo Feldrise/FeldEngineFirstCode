@@ -22,23 +22,21 @@
 * SOFTWARE.
 */
 
+
 #pragma once
 
-#include <GL/glew.h>
-
-#include "../Maths/Math.h"
-#include "Renderable2D.h"
+#include "Layer.h"
+#include "../BatchRenderer2D.h"
 
 namespace Fd {
 	namespace Graphics {
 
-		class Renderer2D
+		class TileLayer : public Layer
 		{
 		public:
-			virtual void begin() {}
-			virtual void submit(const Renderable2D* renderable) = 0;
-			virtual void end() {}
-			virtual void flush() = 0;
+			TileLayer(Shader *shader);
+			~TileLayer();
+
 		};
 
 	}

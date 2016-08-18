@@ -32,7 +32,7 @@
 namespace Fd {
 	namespace Graphics {
 
-		class SimpleRenderer2D : Renderer2D
+		class SimpleRenderer2D : public Renderer2D
 		{
 		public:
 			virtual void submit(const Renderable2D* renderable) override;

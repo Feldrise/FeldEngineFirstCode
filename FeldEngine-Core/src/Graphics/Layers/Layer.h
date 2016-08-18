@@ -22,23 +22,33 @@
 * SOFTWARE.
 */
 
+
 #pragma once
 
-#include <GL/glew.h>
+#include "../Renderer2D.h"
+#include "../Renderable2D.h"
 
-#include "../Maths/Math.h"
-#include "Renderable2D.h"
+#include <vector>
 
 namespace Fd {
 	namespace Graphics {
 
-		class Renderer2D
+		class Layer
 		{
 		public:
-			virtual void begin() {}
-			virtual void submit(const Renderable2D* renderable) = 0;
-			virtual void end() {}
-			virtual void flush() = 0;
+			virtual ~Layer();
+
+			virtual void add(Renderable2D *renderable);
+			virtual void render();
+
+		protected:
+			Layer(Renderer2D *renderer, Shader *shader, Maths::mat4 projectionMatrix);
+
+			// Protected attributs
+			Renderer2D *m_renderer;
+			std::vector<Renderable2D*> m_renderables;
+			Shader *m_shader;
+			Maths::mat4 m_projectionMatrix;
 		};
 
 	}

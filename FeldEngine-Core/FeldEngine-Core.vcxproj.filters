@@ -23,6 +23,9 @@
     <Filter Include="src\Graphics\Buffers">
       <UniqueIdentifier>{010c4e6e-fce0-4a27-be68-f5e71ebabaa8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Graphics\Layers">
+      <UniqueIdentifier>{3af9cccd-b271-46b0-814e-e955207e4e0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -52,6 +55,12 @@
     </ClCompile>
     <ClCompile Include="src\Graphics\Sprite.cpp">
       <Filter>src\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Layers\Layer.cpp">
+      <Filter>src\Graphics\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Layers\TileLayer.cpp">
+      <Filter>src\Graphics\Layers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +120,12 @@
     </ClInclude>
     <ClInclude Include="src\Utils\Timer.h">
       <Filter>src\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Layers\Layer.h">
+      <Filter>src\Graphics\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Layers\TileLayer.h">
+      <Filter>src\Graphics\Layers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

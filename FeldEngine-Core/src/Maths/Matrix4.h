@@ -33,12 +33,11 @@ namespace Fd {
 		template <typename T>
 		struct Matrix4
 		{
-			union
-			{
-				//std::array<T, 4 * 4> elements{ 1 };
-				float elements[4 * 4];
-				std::array<Vector4<T>, 4> columns;
-			};
+
+			//std::array<T, 4 * 4> elements{ 1 };
+			float elements[4 * 4];
+			std::array<Vector4<T>, 4> columns;
+
 			Matrix4() = default;
 			Matrix4(T diagonal) {
 				for (int i = 0; i < 4 * 4; i++)

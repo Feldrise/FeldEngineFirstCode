@@ -22,24 +22,20 @@
 * SOFTWARE.
 */
 
-#pragma once
 
-#include <GL/glew.h>
-
-#include "../Maths/Math.h"
-#include "Renderable2D.h"
+#include "TileLayer.h"
 
 namespace Fd {
 	namespace Graphics {
 
-		class Renderer2D
+		TileLayer::TileLayer(Shader * shader) :
+			Layer(new BatchRenderer2D(), shader, Maths::mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f))
 		{
-		public:
-			virtual void begin() {}
-			virtual void submit(const Renderable2D* renderable) = 0;
-			virtual void end() {}
-			virtual void flush() = 0;
-		};
+		}
+
+		TileLayer::~TileLayer()
+		{
+		}
 
 	}
 }
