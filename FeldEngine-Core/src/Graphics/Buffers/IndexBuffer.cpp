@@ -27,8 +27,8 @@
 namespace Fd {
 	namespace Graphics {
 
-		IndexBuffer::IndexBuffer(GLushort * data, GLsizei count)
-			: m_count(count)
+		IndexBuffer::IndexBuffer(GLushort * data, GLsizei count) :
+			m_count(count)
 		{
 			glGenBuffers(1, &m_bufferID);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_bufferID);

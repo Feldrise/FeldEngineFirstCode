@@ -47,8 +47,10 @@ namespace Fd {
 		{
 		public:
 			// Protected functions
-			Renderable2D(Maths::vec3 position, Maths::vec2 size, Maths::vec4 color) 
-				: m_position(position), m_size(size), m_color(color)
+			Renderable2D(Maths::vec3 position, Maths::vec2 size, Maths::vec4 color) :
+				m_position(position), 
+				m_size(size), 
+				m_color(color)
 			{
 
 			}

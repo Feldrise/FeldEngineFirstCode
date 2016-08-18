@@ -27,8 +27,8 @@
 namespace Fd {
 	namespace Graphics {
 
-		Buffer::Buffer(GLfloat * data, GLsizei count, GLuint componentCount)
-			: m_componentCount(componentCount)
+		Buffer::Buffer(GLfloat * data, GLsizei count, GLuint componentCount) : 
+			m_componentCount(componentCount)
 		{
 			glGenBuffers(1, &m_bufferID);
 			glBindBuffer(GL_ARRAY_BUFFER, m_bufferID);

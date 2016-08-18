@@ -27,15 +27,16 @@
  namespace Fd { 
 	 namespace Graphics {  
    
- 		Shader::Shader(const char* vertPath, const char* fragPath)  
- 			: m_VertPath(vertPath), m_FragPath(fragPath)  
+ 		Shader::Shader(const char* vertPath, const char* fragPath) :
+			m_vertPath(vertPath), 
+			m_fragPath(fragPath)  
  		{  
- 			m_ShaderID = load();  
+ 			m_shaderID = load();  
  		}  
    
  		Shader::~Shader()  
  		{  
- 			glDeleteProgram(m_ShaderID);  
+ 			glDeleteProgram(m_shaderID);  
  		}  
    
  		GLuint Shader::load()  
@@ -44,8 +45,8 @@
  			GLuint vertex = glCreateShader(GL_VERTEX_SHADER);  
  			GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);  
    
- 			std::string vertSourceString = UtilsFile::read_file(m_VertPath);  
- 			std::string fragSourceString = UtilsFile::read_file(m_FragPath);
+ 			std::string vertSourceString = UtilsFile::read_file(m_vertPath);  
+ 			std::string fragSourceString = UtilsFile::read_file(m_fragPath);
    
  			const char* vertSource = vertSourceString.c_str();  
  			const char* fragSource = fragSourceString.c_str();  
@@ -95,7 +96,7 @@
    
  		GLint Shader::getUniformLocation(const GLchar* name)  
  		{  
- 			return glGetUniformLocation(m_ShaderID, name);  
+ 			return glGetUniformLocation(m_shaderID, name);  
  		}  
    
  		void Shader::setUniform1f(const GLchar* name, float value)  
@@ -130,7 +131,7 @@
    
  		void Shader::enable() const  
  		{  
- 			glUseProgram(m_ShaderID);  
+ 			glUseProgram(m_shaderID);  
  		}  
    
  		void Shader::disable() const  

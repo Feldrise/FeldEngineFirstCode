@@ -37,9 +37,9 @@
  	class Shader  
  	{  
  	private:  
- 		GLuint m_ShaderID;  
- 		const char* m_VertPath;  
- 		const char* m_FragPath;  
+ 		GLuint m_shaderID;  
+ 		const char* m_vertPath;  
+ 		const char* m_fragPath;  
  	public:  
  		Shader(const char* vertPath, const char* fragPath);  
  		~Shader();  

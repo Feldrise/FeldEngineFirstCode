@@ -28,8 +28,6 @@
 namespace Fd {
 	namespace Graphics {
 
-
-
 		void SimpleRenderer2D::submit(const Renderable2D * renderable)
 		{
 			m_renderQueue.push_back((StaticSprite*)renderable);
