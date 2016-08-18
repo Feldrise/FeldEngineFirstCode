@@ -74,6 +74,7 @@ namespace Fd {
 				m_mouseButtons[i] = false;
 			}
 
+
 		}
 
 		Window::~Window()

@@ -24,6 +24,7 @@
 
 #include <vector>
 #include <time.h>
+#include <string>
 
 #include "src/Graphics/Window.h"
 
@@ -107,7 +108,7 @@ int main()
 		++frames;
 		if (time.elapsed() - timer > 1.0f) {
 			timer += 1.0f;
-			std::cout << frames << " FPS" << std::endl;
+			window.setTitle(std::string("FeldEngine Demo - " + std::to_string(frames) + " FPS").c_str());
 			frames = 0;
 		}
 	}

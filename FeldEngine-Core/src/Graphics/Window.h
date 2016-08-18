@@ -51,6 +51,11 @@ namespace Fd {
 
 		inline int getWidth() const { return m_width; }
 		inline int getHeight() const { return m_height; }
+
+		void setTitle(const char *title) {
+			m_title = title;
+			glfwSetWindowTitle(m_window, title);
+		}
 	private:
 		// Private Function
 		friend void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
