@@ -28,11 +28,13 @@
 #include <vector>
 
 #include "../Maths/Math.h"
-#include "Renderable2D.h"
+
 
 namespace Fd {
 	namespace Graphics {
 
+		class Renderable2D;
+		
 		class Renderer2D
 		{
 		public:

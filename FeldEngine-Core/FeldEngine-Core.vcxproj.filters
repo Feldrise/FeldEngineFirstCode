@@ -62,6 +62,9 @@
     <ClCompile Include="src\Graphics\Layers\TileLayer.cpp">
       <Filter>src\Graphics\Layers</Filter>
     </ClCompile>
+    <ClCompile Include="src\Graphics\Layers\Group.cpp">
+      <Filter>src\Graphics\Layers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utils\UtilsFile.h">
@@ -125,6 +128,9 @@
       <Filter>src\Graphics\Layers</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Layers\TileLayer.h">
+      <Filter>src\Graphics\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Layers\Group.h">
       <Filter>src\Graphics\Layers</Filter>
     </ClInclude>
   </ItemGroup>

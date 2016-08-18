@@ -41,7 +41,7 @@ namespace Fd {
 				std::array<Vector4<T>, 4> columns;
 			};
 
-			Matrix4() = default;
+			Matrix4() {};
 			Matrix4(T diagonal) {
 				for (int i = 0; i < 4 * 4; i++)
 					elements[i] = 0.0f;

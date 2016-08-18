@@ -27,6 +27,7 @@
 #include <GL/glew.h>
 
 #include "../Maths/Math.h"
+#include "Renderer2D.h"
 #include "Buffers/Buffer.h"
 #include "Buffers/IndexBuffer.h"
 #include "Buffers/VertexArray.h"
@@ -54,11 +55,17 @@ namespace Fd {
 
 			~Renderable2D() { }
 
+			virtual void submit(Renderer2D *renderer) const {
+				renderer->submit(this);
+			}
+
 			inline const Maths::vec3& getPosition() const { return m_position; }
 			inline const Maths::vec2& getSize() const { return m_size; }
 			inline const Maths::vec4& getColor() const { return m_color; }
 
 		protected:
+			Renderable2D() {}
+
 			Maths::vec3 m_position;
 			Maths::vec2 m_size;
 			Maths::vec4 m_color;

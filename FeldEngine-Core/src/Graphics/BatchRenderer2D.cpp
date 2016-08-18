@@ -23,7 +23,7 @@
 */
 
 #include "BatchRenderer2D.h"
-
+#include "Renderable2D.h"
 
 namespace Fd {
 	namespace Graphics {

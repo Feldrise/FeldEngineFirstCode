@@ -34,6 +34,7 @@
 #include "src/Graphics/BatchRenderer2D.h"
 #include "src/Graphics/SimpleRenderer2D.h"
 #include "src/Graphics/Layers/TileLayer.h"
+#include "src/Graphics/Layers/Group.h"
 
 #include "src/Maths/Math.h"
 
@@ -65,11 +66,21 @@ int main()
 		}
 	}
 	else {
-		for (float y{ -9.0f }; y < 9.0f; ++y) {
-			for (float x{ -16.0f }; x < 16.0f; ++x) {
-				layer.add(new Fd::Graphics::Sprite(x, y, 0.9f, 0.9f, Fd::Maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
-			}
-		}
+// 		for (float y{ -9.0f }; y < 9.0f; ++y) {
+// 			for (float x{ -16.0f }; x < 16.0f; ++x) {
+// 				layer.add(new Fd::Graphics::Sprite(x, y, 0.9f, 0.9f, Fd::Maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
+// 			}
+// 		}
+
+		Fd::Graphics::Group *group{ new Fd::Graphics::Group(Fd::Maths::mat4::translation(Fd::Maths::vec3(-15.0f, 5.0f, 0.0f))) };
+		group->add(new Fd::Graphics::Sprite(0.0f, 0.0f, 6, 3, Fd::Maths::vec4(1, 1, 1, 1)));
+
+		Fd::Graphics::Group *button{ new Fd::Graphics::Group(Fd::Maths::mat4::translation(Fd::Maths::vec3(0.5f, 0.5f, 0.0f))) };
+		button->add(new Fd::Graphics::Sprite(0.0f, 0.0f, 5.0f, 2.0f, Fd::Maths::vec4(0, 1, 1, 1)));
+		button->add(new Fd::Graphics::Sprite(0.5f, 0.5f, 3.0f, 1.0f, Fd::Maths::vec4(1, 0, 1, 1)));
+		group->add(button);
+
+		layer.add(group);
 	}
 	
 	Fd::Graphics::TileLayer layer2{ shader2 };
@@ -90,7 +101,7 @@ int main()
 		shader2->setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 32.0f / 960.0f - 16.0f)), static_cast<float>((9.0f - y * 18.0f / 540.0f))));
 
 		layer.render();
-		layer2.render();
+		//layer2.render();
 
 		window.update();
 		++frames;
