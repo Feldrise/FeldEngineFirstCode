@@ -42,7 +42,7 @@ namespace Fd {
 		{
 			delete m_shader;
 			delete m_renderer;
-			for (int i{ 0 }; i < m_renderables.size(); ++i)
+			for (size_t i{ 0 }; i < m_renderables.size(); ++i)
 				delete m_renderables[i];
 		}
 
@@ -54,12 +54,13 @@ namespace Fd {
 		void Layer::render()
 		{
 			m_shader->enable();
-
 			m_renderer->begin();
-			for (const Renderable2D *renderable : m_renderables)
+			
+			int i{ 0 };
+			for (const Renderable2D *renderable : m_renderables) 
 				m_renderer->submit(renderable);
-			m_renderer->end();
 
+			m_renderer->end();
 			m_renderer->flush();
 		}
 

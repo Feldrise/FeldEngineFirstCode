@@ -43,6 +43,8 @@ int main()
 {
 	Fd::Graphics::Window window("FeldEngine demo", 960, 540);
 
+	bool teste50KSprites{ false };
+
 	Fd::Maths::mat4 ortho{ Fd::Maths::mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f) };
 
 	Fd::Graphics::Shader *shader = new Fd::Graphics::Shader("src/Shaders/basic.vert", "src/Shaders/basic.frag");
@@ -54,14 +56,24 @@ int main()
 	//shader.setUniform4f("colour", Fd::Maths::vec4(0.4f, 0.7f, 0.6f, 1.0f));
 
 	Fd::Graphics::TileLayer layer{ shader };
-	for (float y{ -9.0f }; y < 9.0f; y += 0.1f) {
-		for (float x{ -16.0f }; x < 16.0f; x += 0.1f) {
-			layer.add(new Fd::Graphics::Sprite(x, y, 0.09f, 0.09f, Fd::Maths::vec4(rand() % 1000 / 1000.0f, 0, 1, 1)));
+
+	if (teste50KSprites) {
+		for (float y{ -9.0f }; y < 9.0f; y += 0.1f) {
+			for (float x{ -16.0f }; x < 16.0f; x += 0.1f) {
+				layer.add(new Fd::Graphics::Sprite(x, y, 0.09f, 0.09f, Fd::Maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
+			}
 		}
 	}
-
+	else {
+		for (float y{ -9.0f }; y < 9.0f; ++y) {
+			for (float x{ -16.0f }; x < 16.0f; ++x) {
+				layer.add(new Fd::Graphics::Sprite(x, y, 0.9f, 0.9f, Fd::Maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
+			}
+		}
+	}
+	
 	Fd::Graphics::TileLayer layer2{ shader2 };
-	layer2.add(new Fd::Graphics::Sprite(-2, -2, 4, 4, Fd::Maths::vec4(1.0f, 0.0f, 1.0f, 1.0f)));
+	layer2.add(new Fd::Graphics::Sprite(-2, -2, 4, 4, Fd::Maths::vec4(0.0f, 1.0f, 1.0f, 1.0f)));
 
 	Fd::Timer time;
 	float timer{};

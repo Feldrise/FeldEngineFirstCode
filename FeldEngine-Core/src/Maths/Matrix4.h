@@ -35,8 +35,11 @@ namespace Fd {
 		{
 
 			//std::array<T, 4 * 4> elements{ 1 };
-			float elements[4 * 4];
-			std::array<Vector4<T>, 4> columns;
+			union
+			{
+				float elements[4 * 4];
+				std::array<Vector4<T>, 4> columns;
+			};
 
 			Matrix4() = default;
 			Matrix4(T diagonal) {
@@ -57,7 +60,7 @@ namespace Fd {
 					for (int x{ 0 }; x < 4; x++) {
 						T sum = 0;
 						for (int e{ 0 }; e < 4; e++) {
-							sum += elements[x + e * 4] * other.elements[e + y *4];
+							sum += elements[x + e * 4] * other.elements[e + y * 4];
 						}
 
 						data[x + y * 4] = sum;
@@ -65,6 +68,23 @@ namespace Fd {
 				}
 				memcpy(elements, data, 4 * 4 * sizeof(float));
 				return *this;
+			}
+
+			Vector3<T> multiply(const Vector3<T>& other) const {
+				return Vector3<T>(
+					columns[0].x * other.x + columns[1].x * other.y + columns[2].x * other.z + columns[3].x,
+					columns[0].y * other.x + columns[1].y * other.y + columns[2].y * other.z + columns[3].y,
+					columns[0].z * other.x + columns[1].z * other.y + columns[2].z * other.z + columns[3].z
+				);
+			}
+
+			Vector4<T> multiply(const Vector4<T>& other) const {
+				return Vector4<T>(
+					columns[0].x * other.x + columns[1].x * other.y + columns[2].x * other.z + columns[3].x * other.w,
+					columns[0].y * other.x + columns[1].y * other.y + columns[2].y * other.z + columns[3].y * other.w,
+					columns[0].z * other.x + columns[1].z * other.y + columns[2].z * other.z + columns[3].z * other.w,
+					columns[0].w * other.x + columns[1].w * other.y + columns[2].w * other.z + columns[3].w * other.w,
+				);
 			}
 			
 			static Matrix4 orthographic(T left, T right, T bottom, T top, T near, T far) {
@@ -155,6 +175,16 @@ namespace Fd {
 
 		template <typename T>
 		Matrix4<T> operator*(Matrix4<T> left, const Matrix4<T>& right) {
+			return left.multiply(right);
+		}
+
+		template <typename T>
+		Vector3<T> operator*(const Matrix4<T>& left, const Vector3<T>& right) {
+			return left.multiply(right);
+		}
+
+		template <typename T>
+		Vector4<T> operator*(const Matrix4<T>& left, const Vector4<T>& right) {
 			return left.multiply(right);
 		}
 

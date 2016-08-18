@@ -25,6 +25,7 @@
 #pragma once
 
 #include <GL/glew.h>
+#include <vector>
 
 #include "../Maths/Math.h"
 #include "Renderable2D.h"
@@ -35,10 +36,34 @@ namespace Fd {
 		class Renderer2D
 		{
 		public:
+			void push(const Maths::mat4& matrix, bool override = false) {
+				if(override)
+					m_transformationStack.push_back(matrix);
+				else
+					m_transformationStack.push_back(m_transformationStack.back() * matrix);
+
+				m_transformationBack = &m_transformationStack.back();
+			}
+			void pop() {
+				if(m_transformationStack.size() > 1)
+					m_transformationStack.pop_back();
+
+				m_transformationBack = &m_transformationStack.back();
+			}
+
 			virtual void begin() {}
 			virtual void submit(const Renderable2D* renderable) = 0;
 			virtual void end() {}
 			virtual void flush() = 0;
+
+		protected:
+			Renderer2D() {
+				m_transformationStack.push_back(Maths::mat4::identity());
+				m_transformationBack = &m_transformationStack.back();
+			}
+
+			std::vector<Maths::mat4> m_transformationStack;
+			Maths::mat4* m_transformationBack;
 		};
 
 	}

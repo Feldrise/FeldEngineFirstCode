@@ -88,19 +88,19 @@ namespace Fd {
 			unsigned c{};
 			c = a << 24 | b << 16 | g << 8 | r;
 
-			m_buffer->vertex = position;
+			m_buffer->vertex = *m_transformationBack * position;
 			m_buffer->color = c;
 			m_buffer++;
 
-			m_buffer->vertex = Maths::vec3(position.x, position.y + size.y, position.z);
+			m_buffer->vertex = *m_transformationBack * Maths::vec3(position.x, position.y + size.y, position.z);
 			m_buffer->color = c;
 			m_buffer++;
 
-			m_buffer->vertex = Maths::vec3(position.x + size.x, position.y + size.y, position.z);
+			m_buffer->vertex = *m_transformationBack * Maths::vec3(position.x + size.x, position.y + size.y, position.z);
 			m_buffer->color = c;
 			m_buffer++;
 
-			m_buffer->vertex = Maths::vec3(position.x + size.x, position.y, position.z);
+			m_buffer->vertex = *m_transformationBack * Maths::vec3(position.x + size.x, position.y, position.z);
 			m_buffer->color = c;
 			m_buffer++;
 
