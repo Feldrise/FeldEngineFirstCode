@@ -65,6 +65,9 @@
     <ClCompile Include="src\Graphics\Layers\Group.cpp">
       <Filter>src\Graphics\Layers</Filter>
     </ClCompile>
+    <ClCompile Include="src\Graphics\Texture.cpp">
+      <Filter>src\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utils\UtilsFile.h">
@@ -132,6 +135,12 @@
     </ClInclude>
     <ClInclude Include="src\Graphics\Layers\Group.h">
       <Filter>src\Graphics\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\Texture.h">
+      <Filter>src\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Utils\ImageLoad.h">
+      <Filter>src\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

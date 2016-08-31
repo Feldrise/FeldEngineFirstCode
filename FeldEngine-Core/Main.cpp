@@ -40,6 +40,7 @@
 #include "src/Maths/Math.h"
 
 #include "src/Utils/Timer.h"
+#include "src/Graphics/Texture.h"
 
 int main() 
 {
@@ -85,22 +86,40 @@ int main()
 		layer2.add(group);
 	}
 
+	Fd::Graphics::Texture texture("test.png");
+	texture.bind();
+
+	shader->enable();
+	shader->setUniform1i("tex", 0);
+	shader->setUniformMat4("pr_matrix", Fd::Maths::mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
 	Fd::Timer time;
 	float timer{};
 	unsigned frames{ 0 };
 
 	while (!window.closed()) {
 		window.clear();
-
+		
+		/*
 		double x, y;
 		window.getMousePosition(x, y);
-		shader->enable();
+		//shader->enable();
 		shader->setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 32.0f / 960.0f - 16.0f)), static_cast<float>((9.0f - y * 18.0f / 540.0f))));
-		shader2->enable();
+		//shader2->enable();
 		shader2->setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 32.0f / 960.0f - 16.0f)), static_cast<float>((9.0f - y * 18.0f / 540.0f))));
 
-		layer.render();
-		layer2.render();
+		//layer.render();
+		layer2.render();*/
+
+		glBegin(GL_QUADS);
+		glTexCoord2f(0, 0);
+		glVertex2f(0, 0);
+		glTexCoord2f(0, 1);
+		glVertex2f(0, 4);
+		glTexCoord2f(1, 1);
+		glVertex2f(4, 4);
+		glTexCoord2f(1, 0);
+		glVertex2f(4, 0);
+		glEnd();
 
 		window.update();
 		++frames;
