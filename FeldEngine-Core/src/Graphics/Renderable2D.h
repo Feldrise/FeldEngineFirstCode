@@ -39,7 +39,7 @@ namespace Fd {
 		struct VertexData
 		{
 			Maths::vec3 vertex;
-			// Maths::vec4 color;
+			Maths::vec2 uv;
 			unsigned color;
 		};
 
@@ -52,7 +52,7 @@ namespace Fd {
 				m_size(size), 
 				m_color(color)
 			{
-
+				setUVDefaults();
 			}
 
 			~Renderable2D() { }
@@ -64,16 +64,23 @@ namespace Fd {
 			inline const Maths::vec3& getPosition() const { return m_position; }
 			inline const Maths::vec2& getSize() const { return m_size; }
 			inline const Maths::vec4& getColor() const { return m_color; }
+			inline const std::vector<Maths::vec2>& getUV() const { return m_uv; }
 
 		protected:
-			Renderable2D() {}
+			Renderable2D() { setUVDefaults(); }
 
 			Maths::vec3 m_position;
 			Maths::vec2 m_size;
 			Maths::vec4 m_color;
+			std::vector<Maths::vec2> m_uv;
 
 		private:
-
+			void setUVDefaults() {
+				m_uv.push_back(Maths::vec2(0, 0));
+				m_uv.push_back(Maths::vec2(0, 1));
+				m_uv.push_back(Maths::vec2(1, 1));
+				m_uv.push_back(Maths::vec2(1, 0));
+			}
 
 		};
 

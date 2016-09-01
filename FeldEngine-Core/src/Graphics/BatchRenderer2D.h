@@ -40,7 +40,8 @@ namespace Fd {
 		const float RENDERER_BUFFER_SIZE = RENDERER_SPRITE_SIZE * RENDERER_MAX_SPRITE;
 
 		const unsigned SHADER_VERTEX_INDEX = 0;
-		const unsigned SHADER_COLOR_INDEX = 1;
+		const unsigned SHADER_UV_INDEX = 1;
+		const unsigned SHADER_COLOR_INDEX = 2;
 
 		class BatchRenderer2D : public Renderer2D
 		{

@@ -51,41 +51,21 @@ int main()
 	Fd::Maths::mat4 ortho{ Fd::Maths::mat4::orthographic(0.0f, 16.0f, 0.0f, 9.0f, -1.0f, 1.0f) };
 
 	Fd::Graphics::Shader *shader = new Fd::Graphics::Shader("src/Shaders/basic.vert", "src/Shaders/basic.frag");
-	Fd::Graphics::Shader *shader2 = new Fd::Graphics::Shader("src/Shaders/basic.vert", "src/Shaders/basic.frag");
 	shader->enable();
-	shader2->enable();
 	shader->setUniform2f("light_pos", Fd::Maths::vec2(4.0f, 1.5f));
-	shader2->setUniform2f("light_pos", Fd::Maths::vec2(4.0f, 1.5f));
-	//shader.setUniform4f("colour", Fd::Maths::vec4(0.4f, 0.7f, 0.6f, 1.0f));
+	shader->setUniform4f("colour", Fd::Maths::vec4(0.4f, 0.7f, 0.6f, 1.0f));
 
 	Fd::Graphics::TileLayer layer{ shader };	
-	Fd::Graphics::TileLayer layer2{ shader2 };
 
-	if (teste50KSprites) {
-		for (float y{ -9.0f }; y < 9.0f; y += 0.1f) {
-			for (float x{ -16.0f }; x < 16.0f; x += 0.1f) {
-				layer.add(new Fd::Graphics::Sprite(x, y, 0.09f, 0.09f, Fd::Maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
-			}
+	for (float y = -9.0f; y < 9.0f; ++y)
+	{
+		for (float x = -16.0f; x < 16.0f; ++x)
+		{
+			layer.add(new Fd::Graphics::Sprite(x, y, 0.9f, 0.9f, Fd::Maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
 		}
 	}
-	else {
-		for (float y{ -9.0f }; y < 9.0f; ++y) {
-			for (float x{ -16.0f }; x < 16.0f; ++x) {
-				layer.add(new Fd::Graphics::Sprite(x, y, 0.9f, 0.9f, Fd::Maths::vec4(1, rand() % 1000 / 1000.0f, 0, 1)));
-			}
-		}
 
-		Fd::Graphics::Group *group{ new Fd::Graphics::Group(Fd::Maths::mat4::translation(Fd::Maths::vec3(-15.0f, 5.0f, 0.0f))) };
-		group->add(new Fd::Graphics::Sprite(0.0f, 0.0f, 6, 3, Fd::Maths::vec4(1, 1, 1, 1)));
-
-		Fd::Graphics::Group *button{ new Fd::Graphics::Group(Fd::Maths::mat4::translation(Fd::Maths::vec3(0.5f, 0.5f, 0.0f))) };
-		button->add(new Fd::Graphics::Sprite(0.0f, 0.0f, 5.0f, 2.0f, Fd::Maths::vec4(0, 1, 1, 1)));
-		button->add(new Fd::Graphics::Sprite(0.5f, 0.5f, 3.0f, 1.0f, Fd::Maths::vec4(1, 0, 1, 1)));
-		group->add(button);
-
-		layer2.add(group);
-	}
-
+	glActiveTexture(GL_TEXTURE0);
 	Fd::Graphics::Texture texture("test.png");
 	texture.bind();
 
@@ -99,27 +79,11 @@ int main()
 	while (!window.closed()) {
 		window.clear();
 		
-		/*
+
 		double x, y;
 		window.getMousePosition(x, y);
-		//shader->enable();
 		shader->setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 32.0f / 960.0f - 16.0f)), static_cast<float>((9.0f - y * 18.0f / 540.0f))));
-		//shader2->enable();
-		shader2->setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 32.0f / 960.0f - 16.0f)), static_cast<float>((9.0f - y * 18.0f / 540.0f))));
-
-		//layer.render();
-		layer2.render();*/
-
-		glBegin(GL_QUADS);
-		glTexCoord2f(0, 0);
-		glVertex2f(0, 0);
-		glTexCoord2f(0, 1);
-		glVertex2f(0, 4);
-		glTexCoord2f(1, 1);
-		glVertex2f(4, 4);
-		glTexCoord2f(1, 0);
-		glVertex2f(4, 0);
-		glEnd();
+		layer.render();
 
 		window.update();
 		++frames;
