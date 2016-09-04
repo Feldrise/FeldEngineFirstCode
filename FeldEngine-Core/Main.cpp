@@ -100,7 +100,7 @@ int main()
 		++frames;
 		if (time.elapsed() - timer > 1.0f) {
 			timer += 1.0f;
-			window.setTitle(std::string("FeldEngine Demo - " + std::to_string(frames) + " FPS").c_str());
+			window.setTitle(std::string("FeldEngine demo - " + std::to_string(frames) + " FPS").c_str());
 			frames = 0;
 		}
 	}
