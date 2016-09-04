@@ -32,6 +32,7 @@
 #include "Buffers/IndexBuffer.h"
 #include "Buffers/VertexArray.h"
 #include "Shader.h"
+#include "Texture.h"
 
 namespace Fd {
 	namespace Graphics {
@@ -40,6 +41,7 @@ namespace Fd {
 		{
 			Maths::vec3 vertex;
 			Maths::vec2 uv;
+			float tid;
 			unsigned color;
 		};
 
@@ -66,6 +68,8 @@ namespace Fd {
 			inline const Maths::vec4& getColor() const { return m_color; }
 			inline const std::vector<Maths::vec2>& getUV() const { return m_uv; }
 
+			inline const GLuint getTID() const { return m_texture == nullptr ? 0 : m_texture->getID(); }
+
 		protected:
 			Renderable2D() { setUVDefaults(); }
 
@@ -73,6 +77,8 @@ namespace Fd {
 			Maths::vec2 m_size;
 			Maths::vec4 m_color;
 			std::vector<Maths::vec2> m_uv;
+
+			Texture* m_texture;
 
 		private:
 			void setUVDefaults() {

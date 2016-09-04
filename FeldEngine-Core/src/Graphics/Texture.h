@@ -44,6 +44,7 @@ namespace Fd {
 
 			inline const unsigned getWidth() const { return m_width; }
 			inline const unsigned getHeight() const { return m_height; }
+			inline const unsigned getID() const { return m_TID; }
 
 		private:
 			GLuint load();

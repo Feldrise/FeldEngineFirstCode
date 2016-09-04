@@ -41,7 +41,8 @@ namespace Fd {
 
 		const unsigned SHADER_VERTEX_INDEX = 0;
 		const unsigned SHADER_UV_INDEX = 1;
-		const unsigned SHADER_COLOR_INDEX = 2;
+		const unsigned SHADER_TID_INDEX = 2;
+		const unsigned SHADER_COLOR_INDEX = 3;
 
 		class BatchRenderer2D : public Renderer2D
 		{
@@ -60,6 +61,8 @@ namespace Fd {
 			IndexBuffer* m_ibo;
 			GLsizei m_indexCount;
 			VertexData* m_buffer;
+
+			std::vector<GLuint> m_textureSlots;
 		};
 
 	}
