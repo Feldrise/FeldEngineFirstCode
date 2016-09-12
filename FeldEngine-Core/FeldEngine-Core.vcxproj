@@ -74,8 +74,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes/;$(SolutionDir)/deps/includes/FreeType;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_LIB;GLEW_STATIC;FT2_BUILD_LIBRARY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
     </ClCompile>
     <Link>
@@ -98,8 +98,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>GLEW_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)/deps/includes/;$(SolutionDir)/deps/includes/FreeType;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_LIB;GLEW_STATIC;FT2_BUILD_LIBRARY;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -127,6 +127,45 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\deps\src\FreeType\autofit\autofit.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftbase.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftbbox.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftbitmap.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftdebug.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftfstype.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftgasp.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftglyph.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftgxval.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftinit.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftlcdfil.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftmm.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftotval.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftpatent.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftpfr.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftstroke.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftsynth.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftsystem.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\fttype1.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftwinfnt.c" />
+    <ClCompile Include="..\deps\src\FreeType\base\ftxf86.c" />
+    <ClCompile Include="..\deps\src\FreeType\bdf\bdf.c" />
+    <ClCompile Include="..\deps\src\FreeType\cache\ftcache.c" />
+    <ClCompile Include="..\deps\src\FreeType\cff\cff.c" />
+    <ClCompile Include="..\deps\src\FreeType\cid\type1cid.c" />
+    <ClCompile Include="..\deps\src\FreeType\gzip\ftgzip.c" />
+    <ClCompile Include="..\deps\src\FreeType\lzw\ftlzw.c" />
+    <ClCompile Include="..\deps\src\FreeType\pcf\pcf.c" />
+    <ClCompile Include="..\deps\src\FreeType\pfr\pfr.c" />
+    <ClCompile Include="..\deps\src\FreeType\psaux\psaux.c" />
+    <ClCompile Include="..\deps\src\FreeType\pshinter\pshinter.c" />
+    <ClCompile Include="..\deps\src\FreeType\psnames\psmodule.c" />
+    <ClCompile Include="..\deps\src\FreeType\raster\raster.c" />
+    <ClCompile Include="..\deps\src\FreeType\sfnt\sfnt.c" />
+    <ClCompile Include="..\deps\src\FreeType\smooth\smooth.c" />
+    <ClCompile Include="..\deps\src\FreeType\truetype\truetype.c" />
+    <ClCompile Include="..\deps\src\FreeType\type1\type1.c" />
+    <ClCompile Include="..\deps\src\FreeType\type42\type42.c" />
+    <ClCompile Include="..\deps\src\FreeType\winfonts\winfnt.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\Graphics\BatchRenderer2D.cpp" />
     <ClCompile Include="src\Graphics\Buffers\Buffer.cpp" />

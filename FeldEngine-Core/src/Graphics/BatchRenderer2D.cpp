@@ -95,7 +95,7 @@ namespace Fd {
 			if (tid > 0) {
 				bool found{ false };
 
-				for (int i{ 0 }; i < m_textureSlots.size(); ++i) {
+				for (size_t i{ 0 }; i < m_textureSlots.size(); ++i) {
 					if (m_textureSlots[i] == tid) {
 						ts = static_cast<float>(i + 1);
 						found = true;
@@ -157,7 +157,7 @@ namespace Fd {
 
 		void BatchRenderer2D::flush()
 		{
-			for (int i{ 0 }; i < m_textureSlots.size(); ++i) {
+			for (size_t i{ 0 }; i < m_textureSlots.size(); ++i) {
 				glActiveTexture(GL_TEXTURE0 + i);
 				glBindTexture(GL_TEXTURE_2D, m_textureSlots[i]);
 			}
