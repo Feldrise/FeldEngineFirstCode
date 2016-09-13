@@ -52,7 +52,8 @@ namespace Fd {
 			Renderable2D(Maths::vec3 position, Maths::vec2 size, Maths::vec4 color) :
 				m_position(position), 
 				m_size(size), 
-				m_color(color)
+				m_color(color),
+				m_texture(nullptr)
 			{
 				setUVDefaults();
 			}
@@ -68,10 +69,10 @@ namespace Fd {
 			inline const Maths::vec4& getColor() const { return m_color; }
 			inline const std::vector<Maths::vec2>& getUV() const { return m_uv; }
 
-			inline const GLuint getTID() const { return m_texture == nullptr ? 0 : m_texture->getID(); }
+			inline const GLuint getTID() const { return m_texture ? m_texture->getID() : 0; }
 
 		protected:
-			Renderable2D() { setUVDefaults(); }
+			Renderable2D() : m_texture(nullptr) { setUVDefaults(); }
 
 			Maths::vec3 m_position;
 			Maths::vec2 m_size;
