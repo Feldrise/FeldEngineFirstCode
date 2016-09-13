@@ -38,6 +38,9 @@
     <Filter Include="src\ext\src\freetype\FT_MODULES">
       <UniqueIdentifier>{ea1f35fd-dc04-4db6-b06b-056dc8d38682}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ext\src\freetype-gl">
+      <UniqueIdentifier>{cb44e3c1-99d1-4d40-90b0-9d352c375087}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -197,6 +200,27 @@
     <ClCompile Include="..\deps\src\FreeType\winfonts\winfnt.c">
       <Filter>src\ext\src\freetype\FT_MODULES</Filter>
     </ClCompile>
+    <ClCompile Include="..\deps\src\Freetype-gl\platform.c">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\deps\src\Freetype-gl\texture-atlas.c">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\deps\src\Freetype-gl\texture-font.c">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\deps\src\Freetype-gl\vector.c">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\deps\src\Freetype-gl\utf8-utils.c">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\deps\src\Freetype-gl\distance-field.c">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\deps\src\Freetype-gl\edtaa3func.c">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Utils\UtilsFile.h">
@@ -270,6 +294,36 @@
     </ClInclude>
     <ClInclude Include="src\Utils\ImageLoad.h">
       <Filter>src\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\platform.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\texture-atlas.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\texture-font.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\vec234.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\vector.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\freetype-gl.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\opengl.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\utf8-utils.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\distance-field.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\src\Freetype-gl\edtaa3func.h">
+      <Filter>src\ext\src\freetype-gl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
