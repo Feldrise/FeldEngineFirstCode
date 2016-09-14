@@ -30,6 +30,7 @@
 #include "src/Maths/Math.h"
 #include "src/Utils/Timer.h"
 
+#include "src/Graphics/Label.h"
 #include "src/Graphics/Shader.h"
 #include "src/Graphics/Renderable2D.h"
 #include "src/Graphics/sprite.h"
@@ -60,7 +61,7 @@ int main()
 	shader->setUniform4f("colour", Fd::Maths::vec4(0.4f, 0.7f, 0.6f, 1.0f));
 
 	Fd::Graphics::TileLayer layer{ shader };
-
+	
 	Fd::Graphics::Texture* textures[] =
 	{
 		new Fd::Graphics::Texture("ta.png"),

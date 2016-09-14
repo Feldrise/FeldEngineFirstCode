@@ -1,3 +1,9 @@
+#pragma once
+
+#include <string>
+
+#include "Renderable2D.h"
+#include "Math.h"
 /*
 * The MIT License(MIT)
 *
@@ -22,22 +28,21 @@
 * SOFTWARE.
 */
 
-#include "sprite.h"
-
 namespace Fd {
 	namespace Graphics {
 
-		Sprite::Sprite(float x, float y, float width, float height, const Maths::vec4 color) :
-			Renderable2D(Maths::vec3(x, y, 0), Maths::vec2(width, height), color)
+		class Label : public Renderable2D
 		{
-		}
+		public:
+			Label(std::string text, float x, float y, Maths::vec4 color);
 
-		Sprite::Sprite(float x, float y, float width, float height, Texture* texture) :
-			Renderable2D(Maths::vec3(x, y, 0), Maths::vec2(width, height), Maths::vec4(1, 1, 1, 1))
-		{
-			m_texture = texture;
-		}
+			void submit(Renderer2D *renderer) const override;
 
+			std::string text;
+			Maths::vec3& position;
+			float x;
+			float y;
+		};
 
 	}
 }

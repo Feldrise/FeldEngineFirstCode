@@ -30,6 +30,8 @@
 #include "Renderable2D.h"
 #include "Buffers/IndexBuffer.h"
 
+#include "../../../deps/src/Freetype-gl/freetype-gl.h"
+
 namespace Fd {
 	namespace Graphics {
 		
@@ -52,17 +54,20 @@ namespace Fd {
 
 			void begin() override;
 			virtual void submit(const Renderable2D* renderable) override;
+			virtual void drawString(const std::string& text, const Maths::vec3& position, const Maths::vec4& color) override;
 			void end() override;
 			virtual void flush() override;
 
 		private:
 			GLuint m_vao;
 			GLuint m_vbo;
-			IndexBuffer* m_ibo;
+			IndexBuffer* m_ibo{ nullptr };
 			GLsizei m_indexCount;
-			VertexData* m_buffer;
+			VertexData* m_buffer{ nullptr };
 
 			std::vector<GLuint> m_textureSlots;
+			ftgl::texture_atlas_t* m_FTAtlas{ nullptr };
+			ftgl::texture_font_t* m_FTFont{ nullptr };
 		};
 
 	}

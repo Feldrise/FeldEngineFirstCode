@@ -61,6 +61,9 @@ namespace Fd {
 				return;
 			}
 
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 			std::cout << "**********Feld[2D]Engine**********" << std::endl;
 			std::cout << "OpenGL " << glGetString(GL_VERSION) << std::endl;
 			std::cout << "**********************************" << std::endl;

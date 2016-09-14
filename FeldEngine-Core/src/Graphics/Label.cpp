@@ -22,22 +22,24 @@
 * SOFTWARE.
 */
 
-#include "sprite.h"
+#include "Label.h"
 
 namespace Fd {
 	namespace Graphics {
 
-		Sprite::Sprite(float x, float y, float width, float height, const Maths::vec4 color) :
-			Renderable2D(Maths::vec3(x, y, 0), Maths::vec2(width, height), color)
+		Label::Label(std::string text, float x, float y, Maths::vec4 color) :
+			Renderable2D(),
+			text(text),
+			position(m_position)
 		{
+			m_position = Maths::vec3(x, y, 0.0f);
+			m_color = color;
 		}
 
-		Sprite::Sprite(float x, float y, float width, float height, Texture* texture) :
-			Renderable2D(Maths::vec3(x, y, 0), Maths::vec2(width, height), Maths::vec4(1, 1, 1, 1))
+		void Label::submit(Renderer2D * renderer) const
 		{
-			m_texture = texture;
+			renderer->drawString(text, position, m_color);
 		}
-
 
 	}
 }

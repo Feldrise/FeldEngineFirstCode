@@ -127,12 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\deps\src\Freetype-gl\distance-field.c" />
-    <ClCompile Include="..\deps\src\Freetype-gl\edtaa3func.c" />
     <ClCompile Include="..\deps\src\Freetype-gl\platform.c" />
     <ClCompile Include="..\deps\src\Freetype-gl\texture-atlas.c" />
     <ClCompile Include="..\deps\src\Freetype-gl\texture-font.c" />
-    <ClCompile Include="..\deps\src\Freetype-gl\utf8-utils.c" />
     <ClCompile Include="..\deps\src\Freetype-gl\vector.c" />
     <ClCompile Include="..\deps\src\FreeType\autofit\autofit.c" />
     <ClCompile Include="..\deps\src\FreeType\base\ftbase.c" />
@@ -178,6 +175,7 @@
     <ClCompile Include="src\Graphics\Buffers\Buffer.cpp" />
     <ClCompile Include="src\Graphics\Buffers\IndexBuffer.cpp" />
     <ClCompile Include="src\Graphics\Buffers\VertexArray.cpp" />
+    <ClCompile Include="src\Graphics\Label.cpp" />
     <ClCompile Include="src\Graphics\Layers\Group.cpp" />
     <ClCompile Include="src\Graphics\Layers\Layer.cpp" />
     <ClCompile Include="src\Graphics\Layers\TileLayer.cpp" />
@@ -189,20 +187,18 @@
     <ClCompile Include="src\Graphics\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\deps\src\Freetype-gl\distance-field.h" />
-    <ClInclude Include="..\deps\src\Freetype-gl\edtaa3func.h" />
     <ClInclude Include="..\deps\src\Freetype-gl\freetype-gl.h" />
     <ClInclude Include="..\deps\src\Freetype-gl\opengl.h" />
     <ClInclude Include="..\deps\src\Freetype-gl\platform.h" />
     <ClInclude Include="..\deps\src\Freetype-gl\texture-atlas.h" />
     <ClInclude Include="..\deps\src\Freetype-gl\texture-font.h" />
-    <ClInclude Include="..\deps\src\Freetype-gl\utf8-utils.h" />
     <ClInclude Include="..\deps\src\Freetype-gl\vec234.h" />
     <ClInclude Include="..\deps\src\Freetype-gl\vector.h" />
     <ClInclude Include="src\Graphics\BatchRenderer2D.h" />
     <ClInclude Include="src\Graphics\Buffers\Buffer.h" />
     <ClInclude Include="src\Graphics\Buffers\IndexBuffer.h" />
     <ClInclude Include="src\Graphics\Buffers\VertexArray.h" />
+    <ClInclude Include="src\Graphics\Label.h" />
     <ClInclude Include="src\Graphics\Layers\Group.h" />
     <ClInclude Include="src\Graphics\Layers\Layer.h" />
     <ClInclude Include="src\Graphics\Layers\TileLayer.h" />
