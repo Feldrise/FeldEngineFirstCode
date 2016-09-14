@@ -81,6 +81,13 @@ int main()
 		}
 	}
 
+	Fd::Graphics::Group* g{ new Fd::Graphics::Group(Fd::Maths::mat4::translation(Fd::Maths::vec3(-15.8f, 7.0f, 0.0f))) };
+	Fd::Graphics::Label* hello{ new Fd::Graphics::Label("Hello World!", 0.4f, 0.4f, Fd::Maths::vec4(1.0f, 1.0f, 1.0f, 1.0f)) };
+	g->add(new Fd::Graphics::Sprite(0.0f, 0.0f, 6.6f, 1.5f, Fd::Maths::vec4(0.0f, 1.0f, 0.0f, 0.95f)));
+	g->add(hello);
+
+	layer.add(g);
+
 	shader->enable();
 	shader->setUniform1iv("textures", texIDs, 10);
 	shader->setUniformMat4("pr_matrix", Fd::Maths::mat4::orthographic(-16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f));
