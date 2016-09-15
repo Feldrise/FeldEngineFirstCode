@@ -101,7 +101,7 @@ int main()
 
 		double x, y;
 		window.getMousePosition(x, y);
-		shader->setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 32.0f / 960.0f - 16.0f)), static_cast<float>((9.0f - y * 18.0f / 540.0f))));
+		shader->setUniform2f("light_pos", Fd::Maths::vec2(static_cast<float>((x * 32.0f / window.getWidth() - 16.0f)), static_cast<float>((9.0f - y * 18.0f / window.getHeight()))));
 		layer.render();
 
 		window.update();

@@ -27,8 +27,6 @@
 namespace Fd {
 	namespace Graphics {
 
-		void window_resize(GLFWwindow *window, int width, int height);
-
 		Window::Window(const char * title, int width, int height) : 
 			m_title(title),
 			m_width(width), 
@@ -49,7 +47,7 @@ namespace Fd {
 
 			glfwMakeContextCurrent(m_window);
 			glfwSetWindowUserPointer(m_window, this);
-			glfwSetWindowSizeCallback(m_window, window_resize);
+			glfwSetFramebufferSizeCallback(m_window, window_resize);
 			glfwSetKeyCallback(m_window, key_callback);
 			glfwSetMouseButtonCallback(m_window, mouseButton_callback);
 			glfwSetCursorPosCallback(m_window, cursorPosition_callback);
@@ -150,6 +148,9 @@ namespace Fd {
 		void window_resize(GLFWwindow *window, int width, int height)
 		{
 			glViewport(0, 0, width, height);
+			Window *win = static_cast<Window*>(glfwGetWindowUserPointer(window));
+			win->m_width = width;
+			win->m_height = height;
 		}
 	}
 }
