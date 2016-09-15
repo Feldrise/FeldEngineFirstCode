@@ -34,21 +34,17 @@ namespace Fd {
 	{
 	public:
 		static std::string read_file(const std::string& filepath) {
-			std::string result{};
-			std::string line{};
-
-			std::ifstream file{ filepath };
-			if (!file) {
-				//TODO: Use a FeldEngine exeption
-				std::cout << "Error when you attemp to read " << filepath << std::endl;
-				// -> commentaire de Ilearn32: Afficher l'erreur sur std::cout n'est pas le rôle de la fonction read_file(). On peut à la place lancer une exception et éventuellement affiche un message d'erreur sur std::cerr
+			std::ifstream in{ filepath };
+			if (in) {
+				std::string contents{};
+				in.seekg(0, std::ios::end);
+				contents.resize(static_cast<unsigned>(in.tellg()));
+				in.seekg(0, std::ios::beg);
+				in.read(&contents[0], contents.size());
+				in.close();
+				return contents;
 			}
-
-			while (std::getline(file, line)) {
-				result += line + '\n';
-			}
-
-			return result;
+			throw std::runtime_error("Failed to open file \"" + filepath + "\"");
 		} 
 
 	};
