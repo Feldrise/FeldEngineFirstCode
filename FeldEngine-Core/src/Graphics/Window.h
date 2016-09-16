@@ -67,11 +67,11 @@ namespace Fd {
 
 		// Private members
 		std::array<bool, MAX_BUTTONS> m_mouseButtons{};
-		std::array<bool, MAX_BUTTONS> m_mouseState;
-		std::array<bool, MAX_BUTTONS> m_mouseClicked;
-		std::array<bool, MAX_KEYS> m_keys;
-		std::array<bool, MAX_KEYS> m_keyState;
-		std::array<bool, MAX_KEYS> m_keyTyped;
+		std::array<bool, MAX_BUTTONS> m_mouseState{};
+		std::array<bool, MAX_BUTTONS> m_mouseClicked{};
+		std::array<bool, MAX_KEYS> m_keys{};
+		std::array<bool, MAX_KEYS> m_keyState{};
+		std::array<bool, MAX_KEYS> m_keyTyped{};
 		double mx{};
 		double my{};
 
