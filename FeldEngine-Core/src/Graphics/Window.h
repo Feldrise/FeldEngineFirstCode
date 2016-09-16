@@ -42,11 +42,13 @@ namespace Fd {
 		~Window();
 
 		void clear() const;
-		void update() const;
+		void update();
 		bool closed() const;
 
 		bool isKeyPressed(unsigned keyCode) const;
+		bool isKeyTyped(unsigned keyCode) const;
 		bool isMouseButtonPressed(unsigned button) const;
+		bool isMouseButtonClicked(unsigned button) const;
 		void getMousePosition(double& x, double& y) const; // Will return a Vector2
 
 		inline int getWidth() const { return m_width; }
@@ -64,8 +66,12 @@ namespace Fd {
 		friend static void cursorPosition_callback(GLFWwindow *window, double xpos, double ypos);
 
 		// Private members
-		std::array<bool, MAX_KEYS> m_keys{};
 		std::array<bool, MAX_BUTTONS> m_mouseButtons{};
+		std::array<bool, MAX_BUTTONS> m_mouseState;
+		std::array<bool, MAX_BUTTONS> m_mouseClicked;
+		std::array<bool, MAX_KEYS> m_keys;
+		std::array<bool, MAX_KEYS> m_keyState;
+		std::array<bool, MAX_KEYS> m_keyTyped;
 		double mx{};
 		double my{};
 

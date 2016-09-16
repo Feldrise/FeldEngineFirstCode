@@ -69,10 +69,14 @@ namespace Fd {
 
 			for (int i{ 0 }; i < MAX_KEYS; i++) {
 				m_keys[i] = false;
+				m_keyState[i] = false;
+				m_keyTyped[i] = false;
 			}
 
 			for (int i{ 0 }; i < MAX_BUTTONS; i++) {
 				m_mouseButtons[i] = false;
+				m_mouseState[i] = false;
+				m_mouseClicked[i] = false;
 			}
 
 
@@ -88,8 +92,22 @@ namespace Fd {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
-		void Window::update() const
+		void Window::update()
 		{
+			for (int i{ 0 }; i < MAX_KEYS; ++i) 
+				m_keyTyped[i] = m_keys[i] && !m_keyState[i];
+
+			for (int i{ 0 }; i < MAX_KEYS; ++i) {
+				m_keyState[i] = m_keys[i];
+			}
+
+			for (int i{ 0 }; i < MAX_BUTTONS; ++i)
+				m_mouseClicked[i] = m_mouseButtons[i] && !m_mouseState[i];
+
+			for (int i{ 0 }; i < MAX_BUTTONS; ++i) {
+				m_mouseState[i] = m_mouseButtons[i];
+			}
+
 			GLenum error = glGetError();
 
 			if (error != GL_NO_ERROR)
@@ -112,12 +130,28 @@ namespace Fd {
 			return m_keys[keyCode];
 		}
 
+		bool Window::isKeyTyped(unsigned keyCode) const
+		{
+			if (keyCode >= MAX_KEYS)
+				return false;
+
+			return m_keyTyped[keyCode];
+		}
+
 		bool Window::isMouseButtonPressed(unsigned button) const
 		{
 			if (button >= MAX_BUTTONS)
 				return false;
 
 			return m_mouseButtons[button];
+		}
+
+		bool Window::isMouseButtonClicked(unsigned button) const
+		{
+			if (button >= MAX_BUTTONS)
+				return false;
+
+			return m_mouseClicked[button];
 		}
 
 		void Window::getMousePosition(double & x, double & y) const
