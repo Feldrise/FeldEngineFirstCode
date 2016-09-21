@@ -22,8 +22,6 @@
 * SOFTWARE.
 */
 
-// Just a line
-
 #include <vector>
 #include <time.h>
 #include <string>
