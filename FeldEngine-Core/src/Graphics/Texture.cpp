@@ -51,6 +51,7 @@ namespace Fd {
 		GLuint Texture::load()
 		{
 			BYTE* pixels = load_image(m_filename.c_str(), &m_width, &m_height);
+
 			GLuint result;
 			glGenTextures(1, &result);
 			glBindTexture(GL_TEXTURE_2D, result);
@@ -61,7 +62,7 @@ namespace Fd {
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 
-//			delete[] pixels;
+			delete[] pixels;
 			return result;
 		}
 
