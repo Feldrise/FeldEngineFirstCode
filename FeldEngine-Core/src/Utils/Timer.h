@@ -24,7 +24,7 @@
 
 #pragma once
 
-#include <Windows.h>
+#include <chrono>
 
 namespace Fd {
 
@@ -32,29 +32,19 @@ namespace Fd {
 	{
 	public:
 		Timer() {
-			LARGE_INTEGER frequency;
-			QueryPerformanceFrequency(&frequency);
-
-			m_frequency = 1.0 / frequency.QuadPart;
-
-			QueryPerformanceCounter(&m_start);
+			reset();
 		}
 
 		void reset() {
-			QueryPerformanceCounter(&m_start);
+			m_start = HightResolutionClock::now();
 		}
 
 		float elapsed() {
-			LARGE_INTEGER current;
-			QueryPerformanceCounter(&current);
-			
-			unsigned _int64 cycles = current.QuadPart - m_start.QuadPart;
-
-			return static_cast<float>(cycles * m_frequency);
+			return std::chrono::duration_cast<milliseconds_type>(HightResolutionClock::now() - m_start).count() / 1000.0f;
 		}
-
 	private:
-		LARGE_INTEGER m_start;
-		double m_frequency;
+		using HightResolutionClock = std::chrono::high_resolution_clock;
+		using milliseconds_type = std::chrono::duration<float, std::milli>;
+		std::chrono::time_point<HightResolutionClock> m_start;
 	};
 }
