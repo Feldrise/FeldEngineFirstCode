@@ -54,7 +54,7 @@ namespace Fd {
 
 			void begin() override;
 			virtual void submit(const Renderable2D* renderable) override;
-			virtual void drawString(const std::string& text, const Maths::vec3& position, const Maths::vec4& color) override;
+			virtual void drawString(const std::string& text, const Maths::vec3& position, unsigned int color) override;
 			void end() override;
 			virtual void flush() override;
 

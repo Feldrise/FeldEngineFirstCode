@@ -49,7 +49,7 @@ namespace Fd {
 		{
 		public:
 			// Protected functions
-			Renderable2D(Maths::vec3 position, Maths::vec2 size, Maths::vec4 color) :
+			Renderable2D(Maths::vec3 position, Maths::vec2 size, unsigned int color) :
 				m_position(position), 
 				m_size(size), 
 				m_color(color),
@@ -64,9 +64,19 @@ namespace Fd {
 				renderer->submit(this);
 			}
 
+			void setColor(unsigned int color) { m_color = color; }
+			void setColor(const Maths::vec4& color) {
+				int r{ static_cast<int>(color.x * 255.0f) };
+				int g{ static_cast<int>(color.y * 255.0f) };
+				int b{ static_cast<int>(color.z * 255.0f) };
+				int a{ static_cast<int>(color.w * 255.0f) };
+
+				m_color = a << 24 | b << 16 | g << 8 | r;
+			}
+
 			inline const Maths::vec3& getPosition() const { return m_position; }
 			inline const Maths::vec2& getSize() const { return m_size; }
-			inline const Maths::vec4& getColor() const { return m_color; }
+			inline const unsigned int getColor() const { return m_color; }
 			inline const std::vector<Maths::vec2>& getUV() const { return m_uv; }
 
 			inline const GLuint getTID() const { return m_texture ? m_texture->getID() : 0; }
@@ -76,7 +86,7 @@ namespace Fd {
 
 			Maths::vec3 m_position;
 			Maths::vec2 m_size;
-			Maths::vec4 m_color;
+			unsigned int m_color;
 			std::vector<Maths::vec2> m_uv;
 
 			Texture* m_texture;

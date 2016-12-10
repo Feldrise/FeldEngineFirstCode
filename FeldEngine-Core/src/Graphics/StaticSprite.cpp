@@ -31,7 +31,7 @@ namespace Fd {
 
 
 		StaticSprite::StaticSprite(float x, float y, float width, float height, const Maths::vec4 color, Shader& shader) : 
-			Renderable2D(Maths::vec3(x, y, 0), Maths::vec2(width, height), color), 
+			Renderable2D(Maths::vec3(x, y, 0), Maths::vec2(width, height), 0xffffff), 
 			m_shader(shader)
 		{
 			m_vertexArray = new VertexArray();
